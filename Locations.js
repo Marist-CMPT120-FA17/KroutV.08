@@ -4,6 +4,7 @@
  var score = 0;
  var inventory = [];
  var Location = [];
+ var items = [];
  var Keytaken = 0;
  var Hoagietaken= 0;
  var currentLoc = 0;
@@ -36,10 +37,10 @@
          if (userText === "S" || userText === "s") {
              response = btnSouth();
          } else {
-             if (userText === "E" || "e") {
+             if (userText === "E" || userText === "e") {
                  response = btnEast();
              } else {
-                 if (userText === "W" || "w") {
+                 if (userText === "W" || userText ==="w") {
                      response = btnWest();
 				 } else {
 					if (userText === "help") {
@@ -61,48 +62,60 @@
  }
  }
  
- function Location(id, name, description, item) {
+ function Locations(id, name, description, item) {
 	 this.id = id;
 	 this.name = name;
 	 this.description = description;
 	 this.item = item;
 	}
 	
-	var locationZero = new Location (0, "Main Entrance", "1. You enter Donnelly Hall in a panic realizing your dog, Donnelly, has gotten loose and made his way to his favorite building. You must find him!", "map");
-	var locationOne = new Location (1, "Security Office", "2. You are at security, they say they saw your dog but can't say where he is for sure since its a circular building...Security offers you a key to all the rooms (enter take to pick up key)", "key");
-	var locationTwo = new Location (2, "Camera Room", "3. You rush to the back room to check the security cameras and see your dog running in circles", null );
-	var locationThree = new Location (3, "Fashion Lab", "8.You are the fashion lab and see nothing but clothes.", "coat");
-	var locationFour = new Location (4, "Outside Building", "You leave the building. Try again.", null);
-	var locationFive = new Location (5, "Chemistry Lab", "4.You head down to the chemistry lab and hear barking", null);
-	var locationSix = new Location (6, " Found Dog", "6. Donnelly! You found your dog, sitting by the bathroom.", null);
-	var locationSeven = new Location (7, " DN Cafe", "9. You are at the DN Cafe, maybe Donnelly was attracted to the food?", null);
-	var locationEight = new Location (8, "Sub Line", "10. Nothing but subs in here... press take to grab a quick snack", "hoagie");
-	var locationNine = new Location (9, "Restroom", "5. You check the restroom to see if your dog is taking a drink from the toliet", null);
-	var locationTen = new Location (10, "Computer Lab", "7. Nothing but students studying in the computer lab.", null);
+	var locationZero = new Locations (0, "Main Entrance", "1. You enter Donnelly Hall in a panic realizing your dog, Donnelly, has gotten loose and made his way to his favorite building. You must find him!", "map");
+	var locationOne = new Locations (1, "Security Office", "2. You are at security, they say they saw your dog but can't say where he is for sure since its a circular building...Security offers you a key to all the rooms (enter take to pick up key)", "key");
+	var locationTwo = new Locations (2, "Camera Room", "3. You rush to the back room to check the security cameras and see your dog running in circles", null );
+	var locationThree = new Locations (3, "Fashion Lab", "8.You are the fashion lab and see nothing but clothes.", "coat");
+	var locationFour = new Locations (4, "Outside Building", "You leave the building. Try again.", null);
+	var locationFive = new Locations (5, "Chemistry Lab", "4.You head down to the chemistry lab and hear barking", null);
+	var locationSix = new Locations (6, " Found Dog", "6. Donnelly! You found your dog, sitting by the bathroom.", null);
+	var locationSeven = new Locations (7, " DN Cafe", "9. You are at the DN Cafe, maybe Donnelly was attracted to the food?", null);
+	var locationEight = new Locations (8, "Sub Line", "10. Nothing but subs in here... press take to grab a quick snack", "hoagie");
+	var locationNine = new Locations (9, "Restroom", "5. You check the restroom to see if your dog is taking a drink from the toliet", null);
+	var locationTen = new Locations (10, "Computer Lab", "7. Nothing but students studying in the computer lab.", null);
 	
 	Location.push ( locationZero,locationOne,locationTwo,locationThree,locationFour,locationFive,locationSix,locationSeven,locationEight,locationNine,locationTen);
 	console.log(Location);
 	
 	
+function Items (id, name, description) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+}
+	var key = new Items (0,"key", "you have picked up a key");
+	var hoagie = new Items (1,"hoagie", "you have picked up a hoagie");
+
+	items.push (key, hoagie);
+	console.log(items);
+	
  //Nested if to pick up Items
 function TakeItem () {
 	if (currentLoc === 1) {
 		if (Keytaken == 0) {
-			inventory.push("Key");
-			var message = "you have picked up a key";
-			UpdateInventory(message)
+			inventory.push(key.name);
+			console.log(inventory);
+			UpdateInventory(key.description)
 			Keytaken = 1;
 		}
 	}
 	if (currentLoc === 8) {
 		if (Hoagietaken == 0) {
-		inventory.push("Hoagie");
-			var message = "you have picked up a hoagie"
-			UpdateInventory(message)
+			inventory.push(hoagie.name);
+			console.log(inventory);
+			UpdateInventory(hoagie.descrption)
 			Hoagietaken = 1;
 		}
 	}
 }
+			console.log(inventory);
 //Listing Inventory
  function listInventory () {
 	var message = "inventory:\n" + inventory;
