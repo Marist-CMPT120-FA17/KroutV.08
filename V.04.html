@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<!-- Ian Krout
+		 10/29/17
+		 Assignment 4 -->
+
+<head>
+    <title>
+        Donnelly Hall Adventure
+    </title>
+    <style type=text/css>
+        h1 { color: white; font-size: 38pt;} h2 { color: white; font-size: 30pt;}
+	</style>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <script type="text/javascript" src="Locations.js"> </script>
+        <style>
+            .footer {
+                color: white;
+                font-weight: bold;
+            }
+        </style>
+</head>
+
+<body style="background-color:crimson;">
+    <h1 style=font-family:century;>
+        The Race to Save Donnelly
+    </h1>
+    <h2 style=font-family:century;>
+        By: Ian Krout
+    </h2>
+    <textarea rows="5" cols="44" id="maintext" name="maintext"> You enter Donnelly Hall in a panic realizing your dog, Donnelly, has gotten loose and made his way to his favorite building. You must find him!
+      </textarea>
+    <textarea rows="2" cols="10" id="scorebox" name="scorebox"> Score </textarea>
+	<textarea rows = "4" cols = "12" id= "inventory" name= "inventory" > </textarea>
+    <br />
+	
+
+    <input type="button" id="btnNorth" name="btnNorth" value="North" onclick="btnNorth();" />
+
+    <input type="button" id="btnSouth" name="btnSouth" value="South" onclick="btnSouth();" />
+
+    <input type="button" id="btnEast" name="btnEast" value="East" onclick="btnEast();" />
+
+    <input type="button" id="btnWest" name="btnWest" value="West" onclick="btnWest();" />
+
+    <input type="text" id="txtCommand" name="txtCommand">
+    <input type="button" id="UserEnter" value="GO" onclick="btnEnter_click();" />
+	<br>
+	<br>
+	<img src= "Map.jpg" width = "500" height= "500" alt= "Map" >
+
+
+    <p class="footer">
+        Questions sent to <a href="mailto:krout.ian@gmail.com"> Ian Krout </a>
+    </p>
+</body>
+
+</html>
