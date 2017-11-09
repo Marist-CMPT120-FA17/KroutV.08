@@ -110,7 +110,7 @@ function TakeItem () {
 		if (Hoagietaken == 0) {
 			inventory.push(hoagie.name);
 			console.log(inventory);
-			UpdateInventory(hoagie.descrption)
+			UpdateInventory(hoagie.description)
 			Hoagietaken = 1;
 		}
 	}
