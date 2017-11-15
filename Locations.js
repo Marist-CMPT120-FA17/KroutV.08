@@ -8,19 +8,6 @@
  var items = [];
  var currentLoc = 0;
 
- var VisitedLoc0 = 0;
- var VisitedLoc1 = 0;
- var VisitedLoc2 = 0;
- var VisitedLoc3 = 0;
- var VisitedLoc4 = 0;
- var VisitedLoc5 = 0;
- var VisitedLoc6 = 0;
- var VisitedLoc7 = 0;
- var VisitedLoc8 = 0;
- var VisitedLoc9 = 0;
- var VisitedLoc10 = 0;
-
-
  // Switch Case Initi. Loads first location upon opening page
  function init() {
      Location[0];
@@ -166,129 +153,6 @@ function TakeItem () {
 			UpdateDisplay(message);
  }
  
- //Functions for each location to display message
-function Move () {
-    
- }
- function SecurityOffice() {
-   	var message = "2. You are at security, they say they saw your dog but can't say where he is for sure since its a circular building...Security offers you a key to all the rooms (enter take to pick up key)";
-	UpdateDisplay(message);
-     if (VisitedLoc1 == 0) {
-         score += 5;
-         document.getElementById("scorebox").value = "Score:" + score;
-         VisitedLoc1 = 1;
-     } else {
-         document.getElementById("scorebox").value = "Score:" + score;
-     }
- }
-
- function CameraRoom() {
-     var message = "3. You rush to the back room to check the security cameras and see your dog running in circles";
-     UpdateDisplay(message);
-     if (VisitedLoc2 == 0) {
-         score += 5;
-         document.getElementById("scorebox").value = "Score:" + score;
-         VisitedLoc2 = 1;
-     } else {
-         document.getElementById("scorebox").value = "Score:" + score;
-     }
- }
-
- function FashionLab() {
-     var message = "8.You are the fashion lab and see nothing but clothes.";
-     UpdateDisplay(message);
-     if (VisitedLoc3 == 0) {
-         score += 5;
-         document.getElementById("scorebox").value = "Score:" + score;
-         VisitedLoc3 = 1;
-     } else {
-         document.getElementById("scorebox").value = "Score:" + score;
-     }
- }
-
- function OutsideBuilding() {
-     var message = "You leave the building. Try again.";
-     UpdateDisplay(message);
-     if (VisitedLoc4 == 0) {
-         score += 5;
-         document.getElementById("scorebox").value = "Score:" + score;
-         VisitedLoc4 = 1;
-     } else {
-         document.getElementById("scorebox").value = "Score:" + score;
-     }
- }
-
- function ChemistryLab() {
-     var message = "4.You head down to the chemistry lab and hear barking";
-     UpdateDisplay(message);
-     if (VisitedLoc5 == 0) {
-         score += 5;
-         document.getElementById("scorebox").value = "Score:" + score;
-         VisitedLoc5 = 1;
-     } else {
-         document.getElementById("scorebox").value = "Score:" + score;
-     }
- }
-
- function FoundDog() {
-     var message = "6. Donnelly! You found your dog, sitting by the bathroom.";
-     UpdateDisplay(message);
-     if (VisitedLoc6 == 0) {
-         score += 5;
-         document.getElementById("scorebox").value = "Score:" + score;
-         VisitedLoc6 = 1;
-     } else {
-         document.getElementById("scorebox").value = "Score:" + score;
-     }
- }
-
- function DNCafe() {
-     var message = "9. You are at the DN Cafe, maybe Donnelly was attracted to the food?";
-     UpdateDisplay(message);
-     if (VisitedLoc7 == 0) {
-         score += 5;
-         document.getElementById("scorebox").value = "Score:" + score;
-         VisitedLoc7 = 1;
-     } else {
-         document.getElementById("scorebox").value = "Score:" + score;
-     }
- }
-
- function SubLine() {
-     var message = "10. Nothing but subs in here... press take to grab a quick snack";
-     UpdateDisplay(message);
-     if (VisitedLoc8 == 0) {
-         score += 5;
-         document.getElementById("scorebox").value = "Score:" + score;
-         VisitedLoc8 = 1;
-     } else {
-         document.getElementById("scorebox").value = "Score:" + score;
-     }
- }
-
- function Restroom() {
-     var message = "5. You check the restroom to see if your dog is taking a drink from the toliet";
-     UpdateDisplay(message);
-     if (VisitedLoc9 == 0) {
-         score += 5;
-         document.getElementById("scorebox").value = "Score:" + score;
-         VisitedLoc9 = 1;
-     } else {
-         document.getElementById("scorebox").value = "Score:" + score;
-     }
- }
-
- function Computerlab() {
-     var message = "7. Nothing but students studying in the computer lab.";
-     UpdateDisplay(message);
-     if (VisitedLoc10 == 0) {
-         score += 5;
-         document.getElementById("scorebox").value = "Score:" + score;
-         VisitedLoc10 = 1;
-     } else {
-         document.getElementById("scorebox").value = "Score:" + score;
-     }
- }
  //Button Handlers for Directions
  //North
  function btnNorth() {
@@ -472,6 +336,44 @@ function Move () {
                  }
              }
          }
+     }
+ }
+  //Switch-Case
+ function look() {
+     switch (currentLoc) {
+         case 0:
+             Location [0];
+             break;
+         case 1:
+             Location [1];
+             break;
+         case 2:
+             Location [2];
+             break;
+         case 3:
+             Location [3];
+             break;
+         case 4:
+             Location [4];
+             break;
+         case 5:
+             Location [5];
+             break;
+         case 6:
+             Location [6];
+             break;
+         case 7:
+             Location [7];
+             break;
+         case 8:
+             Location [8];
+             break;
+         case 9:
+             Location [9];
+             break;
+         case 10:
+             Location [10];
+             break;
      }
  }
  
