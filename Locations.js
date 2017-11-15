@@ -4,6 +4,7 @@
  var score = 0;
  var inventory = [];
  var Location = [];
+ var Move = [];
  var items = [];
  var currentLoc = 0;
 
@@ -22,7 +23,7 @@
 
  // Switch Case Initi. Loads first location upon opening page
  function init() {
-     look();
+     Location[0];
  }
  //Ability for player to enter text
  
@@ -82,17 +83,17 @@
 	var locationEight = new Locations (8, "Sub Line", "10. Nothing but subs in here... press take to grab a quick snack", "hoagie");
 	var locationNine = new Locations (9, "Restroom", "5. You check the restroom to see if your dog is taking a drink from the toliet", null);
 	var locationTen = new Locations (10, "Computer Lab", "7. Nothing but students studying in the computer lab.", null);
-	location [1] = locationZero;
-	location [2] = locationOne;
-	location [3] = locationTwo;
-	location [4] = locationThree;
-	location [5] = locationFour;
-	location [6] = locationFive;
-	location [7] = locationSix;
-	location [8] = locationSeven;
-	location [9] = locationEight;
-	location [10] = locationNine;
-	location [11] = locationTen;
+	location [0] = locationZero;
+	location [1] = locationOne;
+	location [2] = locationTwo;
+	location [3] = locationThree;
+	location [4] = locationFour;
+	location [5] = locationFive;
+	location [6] = locationSix;
+	location [7] = locationSeven;
+	location [8] = locationEight;
+	location [9] = locationNine;
+	location [10] = locationTen;
 	Location.push ( locationZero,locationOne,locationTwo,locationThree,locationFour,locationFive,locationSix,locationSeven,locationEight,locationNine,locationTen);
 	console.log(Location);
 	
@@ -166,8 +167,7 @@ function TakeItem () {
  }
  
  //Functions for each location to display message
- function MainEntrance() {
-	 
+function Move () {
     
  }
  function SecurityOffice() {
@@ -473,48 +473,7 @@ function TakeItem () {
              }
          }
      }
-
-     look();
  }
-
- //Switch-Case
- function look() {
-     var desc = "";
-     switch (currentLoc) {
-         case 0:
-             MainEntrance();
-             break;
-         case 1:
-             SecurityOffice();
-             break;
-         case 2:
-             CameraRoom();
-             break;
-         case 3:
-             FashionLab();
-             break;
-         case 4:
-             OutsideBuilding();
-             break;
-         case 5:
-             ChemistryLab();
-             break;
-         case 6:
-             FoundDog();
-             break;
-         case 7:
-             DNCafe();
-             break;
-         case 8:
-             SubLine();
-             break;
-         case 9:
-             Restroom();
-             break;
-         case 10:
-             Computerlab();
-             break;
-     }
  }
  //Updating the text box
  function UpdateDisplay(msg) {
