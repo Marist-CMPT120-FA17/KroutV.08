@@ -5,10 +5,6 @@
  var inventory = [];
  var Location = [];
  var items = [];
- var Keytaken = 0;
- var Hoagietaken= 0;
- var Maptaken= 0;
- var Coattaken= 0;
  var currentLoc = 0;
 
  var VisitedLoc0 = 0;
@@ -72,7 +68,7 @@
 	 this.check = 0;
 	 this.toString = function () {
 			return this.description;
-	 }
+			}
 	}
 	
 	var locationZero = new Locations (0, "Main Entrance", "1. You enter Donnelly Hall in a panic realizing your dog, Donnelly, has gotten loose and made his way to his favorite building. You must find him!", "map");
@@ -95,6 +91,7 @@ function Items (id, name, description) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
+		this.check = 0;
 }
 	var key = new Items (0,"key", "you have picked up a key");
 	var hoagie = new Items (1,"hoagie", "you have picked up a hoagie");
@@ -106,36 +103,36 @@ function Items (id, name, description) {
 	
  //Nested if to pick up Items
 function TakeItem () {
-	if (currentLoc === 1) {
-		if (Keytaken == 0) {
+	if (Location[1]) {
+		if (key.check == 0) {
 			inventory.push(key.name);
 			console.log(inventory);
 			UpdateInventory(key.description)
-			Keytaken = 1;
+			key.check = 1;
 		}
 	}
-	if (currentLoc === 8) {
-		if (Hoagietaken == 0) {
+	if (Lcoation[8]) {
+		if (hoagie.check == 0) {
 			inventory.push(hoagie.name);
 			console.log(inventory);
 			UpdateInventory(hoagie.description)
-			Hoagietaken = 1;
+			hoagie.check = 1;
 		}
 	}
-	if (currentLoc === 0) {
-		if (Maptaken == 0) {
+	if (Location[0]) {
+		if (map.check == 0) {
 			inventory.push(map.name);
 			console.log(inventory);
 			UpdateInventory(map.description)
-			Maptaken = 1;
+			map.check = 1;
 		}
 	}
-	if (currentLoc === 3) {
-		if (Coattaken == 0) {
+	if (Location[3]) {
+		if (coat.taken == 0) {
 			inventory.push(coat.name);
 			console.log(inventory);
 			UpdateInventory(coat.description)
-			Coattaken = 1;
+			coat.taken = 1;
 		}
 	}
 }
@@ -160,15 +157,8 @@ function TakeItem () {
  
  //Functions for each location to display message
  function MainEntrance() {
-     Location[0];
-	 UpdateDisplay (locationZero.description);
-     if (VisitedLoc0 == 0) {
-         score += 5;
-         document.getElementById("scorebox").value = "Score:" + score;
-         VisitedLoc0 = 1;
-     } else {
-         document.getElementById("scorebox").value = "Score:" + score;
-     }
+	 
+    
  }
  function SecurityOffice() {
    	var message = "2. You are at security, they say they saw your dog but can't say where he is for sure since its a circular building...Security offers you a key to all the rooms (enter take to pick up key)";
