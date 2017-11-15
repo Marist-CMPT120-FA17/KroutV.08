@@ -50,8 +50,8 @@
 	 this.description = description;
 	 this.item = item;
 	 this.check = 0;
-	 this.toString = function () {
-			return("" + this.description);
+	 this.displaytext = function () {
+			return(this.description);
 			}
 	}
 	
@@ -79,8 +79,7 @@
 	location[10] = locationTen;
 	Location.push ( locationZero,locationOne,locationTwo,locationThree,locationFour,locationFive,locationSix,locationSeven,locationEight,locationNine,locationTen);
 	console.log(Location);
-	
-	UpdateDisplay(locationOne.toString());
+
 
 	
 	
