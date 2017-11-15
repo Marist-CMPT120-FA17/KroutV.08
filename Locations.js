@@ -82,7 +82,17 @@
 	var locationEight = new Locations (8, "Sub Line", "10. Nothing but subs in here... press take to grab a quick snack", "hoagie");
 	var locationNine = new Locations (9, "Restroom", "5. You check the restroom to see if your dog is taking a drink from the toliet", null);
 	var locationTen = new Locations (10, "Computer Lab", "7. Nothing but students studying in the computer lab.", null);
-	
+	location [1] = locationZero;
+	location [2] = locationOne;
+	location [3] = locationTwo;
+	location [4] = locationThree;
+	location [5] = locationFour;
+	location [6] = locationFive;
+	location [7] = locationSix;
+	location [8] = locationSeven;
+	location [9] = locationEight;
+	location [10] = locationNine;
+	location [11] = locationTen;
 	Location.push ( locationZero,locationOne,locationTwo,locationThree,locationFour,locationFive,locationSix,locationSeven,locationEight,locationNine,locationTen);
 	console.log(Location);
 	
