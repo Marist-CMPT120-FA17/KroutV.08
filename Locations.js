@@ -69,6 +69,10 @@
 	 this.name = name;
 	 this.description = description;
 	 this.item = item;
+	 this.check = 0;
+	 this.toString = function () {
+			return this.description;
+	 }
 	}
 	
 	var locationZero = new Locations (0, "Main Entrance", "1. You enter Donnelly Hall in a panic realizing your dog, Donnelly, has gotten loose and made his way to his favorite building. You must find him!", "map");
