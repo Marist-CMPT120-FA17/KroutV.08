@@ -474,7 +474,7 @@ function Move () {
          }
      }
  }
- }
+ 
  //Updating the text box
  function UpdateDisplay(msg) {
      var target = document.getElementById("maintext");
