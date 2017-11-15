@@ -8,10 +8,6 @@
  var items = [];
  var currentLoc = 0;
 
- // Switch Case Initi. Loads first location upon opening page
- function init() {
-     Location[0];
- }
  //Ability for player to enter text
  
  function btnEnter_click() {
@@ -84,7 +80,8 @@
 	Location.push ( locationZero,locationOne,locationTwo,locationThree,locationFour,locationFive,locationSix,locationSeven,locationEight,locationNine,locationTen);
 	console.log(Location);
 	
-	
+	UpdateDisplay(locationOne.toString());
+
 	
 	
 	
@@ -163,10 +160,6 @@ function TakeItem () {
 			UpdateDisplay(message);
  }
  
- //Functions for each location to display message
-function Move () {
-    
- }
  //Button Handlers for Directions
  //North
  function btnNorth() {
