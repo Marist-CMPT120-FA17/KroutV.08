@@ -4,7 +4,6 @@
  var score = 0;
  var inventory = [];
  var Location = [];
- var Move = [];
  var items = [];
  var currentLoc = 0;
 
@@ -153,12 +152,21 @@ function TakeItem () {
 			UpdateDisplay(message);
  }
  
+ function Mapping () {
+	if (Location [0]) {
+		UpdateDisplay(locationZero.description)
+	}
+	if (Location [1]) {
+		UpdateDisplay(locationOne.description)
+	}
+ }
+		
+ 
  //Button Handlers for Directions
  //North
  function btnNorth() {
      if (currentLoc === 0) {
-         currentLoc = 1;
-         look();
+         currentLoc = Location [1];
          document.getElementById("btnEast").disabled = true;
          document.getElementById("btnWest").disabled = true;
          document.getElementById("btnSouth").disabled = false;
