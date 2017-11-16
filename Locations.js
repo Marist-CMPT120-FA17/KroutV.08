@@ -6,7 +6,7 @@
  var Location = [];
  var Move = [];
  var items = [];
- var currentLoc = Location[0];
+// var currentLoc = 0;
 
  //Ability for player to enter text
  
@@ -44,28 +44,33 @@
  }
  }
  
- function Locations(id, name, description, item) {
+ function Locations(id, name, description, item, north, south, west, east) {
 	 this.id = id;
 	 this.name = name;
 	 this.description = description;
 	 this.item = item;
+	 this.north = north;
+	 this.south = south;
+	 this.west = west;
+	 this.east = east;
 	 this.check = 0;
 	 this.toString = function () {
 			return(this.description);
 			}
 	}
 	
-	var locationZero = new Locations (0, "Main Entrance", "1. You enter Donnelly Hall in a panic realizing your dog, Donnelly, has gotten loose and made his way to his favorite building. You must find him!", "map");
-	var locationOne = new Locations (1, "Security Office", "2. You are at security, they say they saw your dog but can't say where he is for sure since its a circular building...Security offers you a key to all the rooms (enter take to pick up key)", "key");
-	var locationTwo = new Locations (2, "Camera Room", "3. You rush to the back room to check the security cameras and see your dog running in circles", null );
-	var locationThree = new Locations (3, "Fashion Lab", "8.You are the fashion lab and see nothing but clothes. Need a new coat? enter take.", "coat");
-	var locationFour = new Locations (4, "Outside Building", "You leave the building. Try again.", null); 
-	var locationFive = new Locations (5, "Chemistry Lab", "4.You head down to the chemistry lab and hear barking", null);
-	var locationSix = new Locations (6, " Found Dog", "6. Donnelly! You found your dog, sitting by the bathroom.", null);
-	var locationSeven = new Locations (7, " DN Cafe", "9. You are at the DN Cafe, maybe Donnelly was attracted to the food?", null);
+	var locationZero = new Locations (0, "Main Entrance", "1. You enter Donnelly Hall in a panic realizing your dog, Donnelly, has gotten loose and made his way to his favorite building. You must find him!", "map", 1, 4,5,10);
+	var locationOne = new Locations (1, "Security Office", "2. You are at security, they say they saw your dog but can't say where he is for sure since its a circular building...Security offers you a key to all the rooms (enter take to pick up key)", "key", 2,0,-1,-1);
+	var locationTwo = new Locations (2, "Camera Room", "3. You rush to the back room to check the security cameras and see your dog running in circles", null, -1,1,-1,-1 );
+	var locationThree = new Locations (3, "Fashion Lab", "8.You are the fashion lab and see nothing but clothes. Need a new coat? enter take.", "coat",-1,-1,10,7 );
+	var locationFour = new Locations (4, "Outside Building", "You leave the building. Try again.", null, 0,-1,-1,-1); 
+	var locationFive = new Locations (5, "Chemistry Lab", "4.You head down to the chemistry lab and hear barking", null,-1,-1,9,0);
+	var locationSix = new Locations (6, " Found Dog", "6. Donnelly! You found your dog, sitting by the bathroom.", null, -1,-1,-1,-1);
+	var locationSeven = new Locations (7, " DN Cafe", "9. You are at the DN Cafe, maybe Donnelly was attracted to the food?", null,-1,-1,);
 	var locationEight = new Locations (8, "Sub Line", "10. Nothing but subs in here... press take to grab a quick snack", "hoagie");
-	var locationNine = new Locations (9, "Restroom", "5. You check the restroom to see if your dog is taking a drink from the toliet", null);
+	var locationNine = new Locations (9, "Restroom", "5. You check the restroom to see if your dog is taking a drink from the toliet", null, -1,-1,6,5);
 	var locationTen = new Locations (10, "Computer Lab", "7. Nothing but students studying in the computer lab.", null);
+	
 	
 	location[0] = locationZero;
 	location[1] = locationOne;
@@ -81,17 +86,15 @@
 	
 	Location.push ( locationZero,locationOne,locationTwo,locationThree,locationFour,locationFive,locationSix,locationSeven,locationEight,locationNine,locationTen);
 	console.log(Location);
-
-
+	currentLoc=Location[0].id
+	console.log(currentLoc);
+	console.log(location[currentLoc].description);
+	console.log(location[currentLoc].north);
 	
-function Movement (){
-	if (currentLoc=Location[0]) {
-			var msg = "TEST DISPLAY";
-			UpdateDisplay(msg);
-	}
-}
-		
-	
+	function startup() {
+	var message = location[currentLoc].description;
+		UpdateDisplay(message);
+ }
 	
 function Items (id, name, description) {
 		this.id = id;
@@ -109,7 +112,7 @@ function Items (id, name, description) {
 	
  //Nested if to pick up Items
 function TakeItem () {
-	if (Location[1]) {
+	if (currentLoc==1) {
 		if (key.check == 0) {
 			inventory.push(key.name);
 			console.log(inventory);
@@ -117,7 +120,7 @@ function TakeItem () {
 			key.check = 1;
 		}
 	}
-	if (Location[8]) {
+	if (currentLoc==8) {
 		if (hoagie.check == 0) {
 			inventory.push(hoagie.name);
 			console.log(inventory);
@@ -125,7 +128,7 @@ function TakeItem () {
 			hoagie.check = 1;
 		}
 	}
-	if (Location[0]) {
+	if (currentLoc==0) {
 		if (map.check == 0) {
 			inventory.push(map.name);
 			console.log(inventory);
@@ -133,7 +136,7 @@ function TakeItem () {
 			map.check = 1;
 		}
 	}
-	if (Location[3]) {
+	if (currentLoc==3) {
 		if (coat.check == 0) {
 			inventory.push(coat.name);
 			console.log(inventory);
@@ -142,8 +145,7 @@ function TakeItem () {
 		}
 	}
 }
-
-			console.log(inventory);
+console.log(inventory);
 //Listing Inventory
  function listInventory () {
 	var message = "inventory:\n" + inventory;
@@ -160,196 +162,39 @@ function TakeItem () {
 		var message = "Click buttons to move in the choosen direction or enter values N,S,E,W to move in accompanying directions. Refer to map for locations. Enter take to pick up items when possible and list to show your inventory. Enjoy and find your dog! "
 			UpdateDisplay(message);
  }
- 
+
  //Button Handlers for Directions
  //North
  function btnNorth() {
-     if (currentLoc === 0) {
-         currentLoc = 1;
-         look();
-         document.getElementById("btnEast").disabled = true;
-         document.getElementById("btnWest").disabled = true;
-         document.getElementById("btnSouth").disabled = false;
-         document.getElementById("btnNorth").disabled = false;
-     } else {
-         if (currentLoc === 1) {
-             currentLoc = 2;
-             look();
-             document.getElementById("btnEast").disabled = true;
-             document.getElementById("btnWest").disabled = true;
-             document.getElementById("btnSouth").disabled = false;
-             document.getElementById("btnNorth").disabled = true;
-         } else {
-             if (currentLoc === 4) {
-                 currentLoc = 0;
-                 look();
-                 document.getElementById("btnEast").disabled = false;
-                 document.getElementById("btnWest").disabled = false;
-                 document.getElementById("btnSouth").disabled = false;
-                 document.getElementById("btnNorth").disabled = false;
-             }
-         }
-     }
-     look();
+	var temp = location[currentLoc].north;
+	currentLoc = temp;
+	console.log(temp);
+	startup();
  }
- //South
  function btnSouth() {
-     if (currentLoc === 2) {
-         currentLoc = 1;
-         look();
-         document.getElementById("btnEast").disabled = true;
-         document.getElementById("btnWest").disabled = true;
-         document.getElementById("btnSouth").disabled = false;
-         document.getElementById("btnNorth").disabled = false;
-     } else {
-         if (currentLoc === 1) {
-             currentLoc = 0;
-             look();
-             document.getElementById("btnEast").disabled = false;
-             document.getElementById("btnWest").disabled = false;
-             document.getElementById("btnSouth").disabled = false;
-             document.getElementById("btnNorth").disabled = false;
-         } else {
-             if (currentLoc === 0) {
-                 currentLoc = 4;
-                 look();
-                 document.getElementById("btnEast").disabled = true;
-                 document.getElementById("btnWest").disabled = true;
-                 document.getElementById("btnSouth").disabled = true;
-                 document.getElementById("btnNorth").disabled = false;
-             }
-         }
-     }
-     look();
+	var temp = location[currentLoc].south;
+	currentLoc = temp;
+	console.log(temp);
+	startup();
  }
-
- //East
  function btnEast() {
-     if (currentLoc === 0) {
-         currentLoc = 10;
-         look();
-         document.getElementById("btnEast").disabled = false;
-         document.getElementById("btnWest").disabled = false;
-         document.getElementById("btnSouth").disabled = true;
-         document.getElementById("btnNorth").disabled = true;
-     } else {
-         if (currentLoc === 10) {
-             currentLoc = 3;
-             look();
-             document.getElementById("btnEast").disabled = false;
-             document.getElementById("btnWest").disabled = false;
-             document.getElementById("btnSouth").disabled = true;
-             document.getElementById("btnNorth").disabled = true;
-         } else {
-             if (currentLoc === 9) {
-                 currentLoc = 5;
-                 look();
-                 document.getElementById("btnEast").disabled = false;
-                 document.getElementById("btnWest").disabled = false;
-                 document.getElementById("btnSouth").disabled = true;
-                 document.getElementById("btnNorth").disabled = true;
-             } else {
-                 if (currentLoc === 3) {
-                     currentLoc = 7;
-                     look();
-                     document.getElementById("btnEast").disabled = false;
-                     document.getElementById("btnWest").disabled = false;
-                     document.getElementById("btnSouth").disabled = true;
-                     document.getElementById("btnNorth").disabled = true;
-                 } else {
-                     if (currentLoc === 7) {
-                         currentLoc = 8;
-                         look();
-                         document.getElementById("btnEast").disabled = true;
-                         document.getElementById("btnWest").disabled = false;
-                         document.getElementById("btnSouth").disabled = true;
-                         document.getElementById("btnNorth").disabled = true;
-                     } else {
-                         if (currentLoc === 5) {
-                             currentLoc = 0;
-                             look();
-                             document.getElementById("btnEast").disabled = false;
-                             document.getElementById("btnWest").disabled = false;
-                             document.getElementById("btnSouth").disabled = false;
-                             document.getElementById("btnNorth").disabled = false;
-
-                         }
-                     }
-                 }
-             }
-         }
-     }
-     look();
+	var temp = location[currentLoc].east;
+	currentLoc = temp;
+	console.log(temp);
+	startup();
  }
- //West
  function btnWest() {
-     if (currentLoc === 0) {
-         currentLoc = 5;
-         look();
-         document.getElementById("btnEast").disabled = false;
-         document.getElementById("btnWest").disabled = false;
-         document.getElementById("btnSouth").disabled = true;
-         document.getElementById("btnNorth").disabled = true;
-     } else {
-         if (currentLoc === 5) {
-             currentLoc = 9;
-             look();
-             document.getElementById("btnEast").disabled = false;
-             document.getElementById("btnWest").disabled = false;
-             document.getElementById("btnSouth").disabled = true;
-             document.getElementById("btnNorth").disabled = true;
-         } else {
-             if (currentLoc === 10) {
-                 currentLoc = 0;
-                 look();
-                 document.getElementById("btnEast").disabled = false;
-                 document.getElementById("btnWest").disabled = false;
-                 document.getElementById("btnSouth").disabled = false;
-                 document.getElementById("btnNorth").disabled = false;
-             } else {
-                 if (currentLoc === 9) {
-                     currentLoc = 6;
-                     look();
-                     document.getElementById("btnEast").disabled = true;
-                     document.getElementById("btnWest").disabled = true;
-                     document.getElementById("btnSouth").disabled = true;
-                     document.getElementById("btnNorth").disabled = true;
-                 } else {
-                     if (currentLoc === 3) {
-                         currentLoc = 10;
-                         look();
-                         document.getElementById("btnEast").disabled = false;
-                         document.getElementById("btnWest").disabled = false;
-                         document.getElementById("btnSouth").disabled = false;
-                         document.getElementById("btnNorth").disabled = false;
-                     } else {
-                         if (currentLoc === 7) {
-                             currentLoc = 3;
-                             look();
-                             document.getElementById("btnEast").disabled = false;
-                             document.getElementById("btnWest").disabled = false;
-                             document.getElementById("btnSouth").disabled = true;
-                             document.getElementById("btnNorth").disabled = true;
-                         } else {
-                             if (currentLoc === 8) {
-                                 currentLoc = 7;
-                                 look();
-                                 document.getElementById("btnEast").disabled = false;
-                                 document.getElementById("btnWest").disabled = false;
-                                 document.getElementById("btnSouth").disabled = true;
-                                 document.getElementById("btnNorth").disabled = true;
-                             }
-                         }
-                     }
-                 }
-             }
-         }
-     }
+	var temp = location[currentLoc].west;
+	currentLoc = temp;
+	console.log(temp);
+	startup();
  }
  
  //Updating the text box
  function UpdateDisplay(msg) {
+	 console.log(msg);
      var target = document.getElementById("maintext");
+	 console.log(target);
      target.value = msg + "\n\n";
  }
  function UpdateInventory(msg) {
