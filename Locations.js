@@ -6,7 +6,7 @@
  var Location = [];
  var Move = [];
  var items = [];
- var currentLoc = 0;
+ var currentLoc = Location[0];
 
  //Ability for player to enter text
  
@@ -50,7 +50,7 @@
 	 this.description = description;
 	 this.item = item;
 	 this.check = 0;
-	 this.displaytext = function () {
+	 this.toString = function () {
 			return(this.description);
 			}
 	}
@@ -66,6 +66,7 @@
 	var locationEight = new Locations (8, "Sub Line", "10. Nothing but subs in here... press take to grab a quick snack", "hoagie");
 	var locationNine = new Locations (9, "Restroom", "5. You check the restroom to see if your dog is taking a drink from the toliet", null);
 	var locationTen = new Locations (10, "Computer Lab", "7. Nothing but students studying in the computer lab.", null);
+	
 	location[0] = locationZero;
 	location[1] = locationOne;
 	location[2] = locationTwo;
@@ -77,18 +78,19 @@
 	location[8] = locationEight;
 	location[9] = locationNine;
 	location[10] = locationTen;
+	
 	Location.push ( locationZero,locationOne,locationTwo,locationThree,locationFour,locationFive,locationSix,locationSeven,locationEight,locationNine,locationTen);
 	console.log(Location);
 
 
 	
-	
-	
-	
-	
-	
-	
-	
+function Movement (){
+	if (currentLoc=Location[0]) {
+			var msg = "TEST DISPLAY";
+			UpdateDisplay(msg);
+	}
+}
+		
 	
 	
 function Items (id, name, description) {
