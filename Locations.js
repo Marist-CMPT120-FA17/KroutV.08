@@ -165,7 +165,6 @@ console.log(inventory);
  //North
  function btnNorth() {
 	var temp = location[currentLoc].north;
-	currentLoc = temp;
 	if (temp != -1){
 	currentLoc = temp;
 	console.log(temp);
@@ -175,7 +174,6 @@ console.log(inventory);
  }
  function btnSouth() {
 	var temp = location[currentLoc].south;
-	currentLoc = temp;
 	if (temp != -1){
 		currentLoc = temp;
 	console.log(temp);
@@ -185,7 +183,6 @@ console.log(inventory);
  }
  function btnEast() {
 	var temp = location[currentLoc].east;
-	currentLoc = temp;
 	console.log(temp);
 	if (temp != -1){
 	currentLoc = temp;
@@ -195,7 +192,6 @@ console.log(inventory);
  }
  function btnWest() {
 	var temp = location[currentLoc].west;
-	currentLoc = temp;
 	console.log(temp);
 	if (temp != -1){
 	currentLoc = temp;
