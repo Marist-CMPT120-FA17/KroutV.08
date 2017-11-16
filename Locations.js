@@ -64,10 +64,10 @@
 	var locationFour = new Locations (4, "Outside Building", "You leave the building. Try again.", null, 0,-1,-1,-1); 
 	var locationFive = new Locations (5, "Chemistry Lab", "4.You head down to the chemistry lab and hear barking", null,-1,-1,9,0);
 	var locationSix = new Locations (6, " Found Dog", "6. Donnelly! You found your dog, sitting by the bathroom.", null, -1,-1,-1,-1);
-	var locationSeven = new Locations (7, " DN Cafe", "9. You are at the DN Cafe, maybe Donnelly was attracted to the food?", null,-1,-1,);
-	var locationEight = new Locations (8, "Sub Line", "10. Nothing but subs in here... press take to grab a quick snack", "hoagie");
+	var locationSeven = new Locations (7, " DN Cafe", "9. You are at the DN Cafe, maybe Donnelly was attracted to the food?", null,-1,-1,3,8);
+	var locationEight = new Locations (8, "Sub Line", "10. Nothing but subs in here... press take to grab a quick snack", "hoagie", -1,-1,7,-1);
 	var locationNine = new Locations (9, "Restroom", "5. You check the restroom to see if your dog is taking a drink from the toliet", null, -1,-1,6,5);
-	var locationTen = new Locations (10, "Computer Lab", "7. Nothing but students studying in the computer lab.", null);
+	var locationTen = new Locations (10, "Computer Lab", "7. Nothing but students studying in the computer lab.", null,-1,-1,0,3);
 	
 	
 	location[0] = locationZero;
@@ -166,38 +166,42 @@ console.log(inventory);
  function btnNorth() {
 	var temp = location[currentLoc].north;
 	currentLoc = temp;
-	if (temp != -1) 
-	currentLoc = temp
+	if (temp != -1){
+	currentLoc = temp;
 	console.log(temp);
 	startup();
 	scoring ();
+	}
  }
  function btnSouth() {
 	var temp = location[currentLoc].south;
 	currentLoc = temp;
-	if (temp != -1) 
-	currentLoc = temp
+	if (temp != -1){
+		currentLoc = temp;
 	console.log(temp);
 	startup();
 	scoring();
+	}
  }
  function btnEast() {
 	var temp = location[currentLoc].east;
 	currentLoc = temp;
 	console.log(temp);
-	if (temp != -1) 
-	currentLoc = temp
+	if (temp != -1){
+	currentLoc = temp;
 	startup();
 	scoring ();
+	}
  }
  function btnWest() {
 	var temp = location[currentLoc].west;
 	currentLoc = temp;
 	console.log(temp);
-	if (temp != -1) 
-	currentLoc = temp
+	if (temp != -1){
+	currentLoc = temp;
 	startup();
 	scoring ();
+	}
  }
  
  function scoring () {
